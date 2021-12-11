@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <script>
+    
+function submitForm() { 
+  // Get the first form with the name 
+  var frm = document.getElementsByName('form1')[0]; 
+  var frm2 = document.getElementsByName('form2')[0]; 
+  frm2.reset();  // Reset 
+  frm.submit(); // Submit 
+  frm.reset();  // Reset 
+  return false; // Prevent page refresh 
+} 
+  </script>
+
+<script>
+function submitForm2() { 
+  // Get the first form with the name 
+  var frm1 = document.getElementsByName('form1')[0]; 
+  var frm = document.getElementsByName('form2')[0]; 
+  frm1.reset();
+  frm.submit(); // Submit 
+  frm.reset();  // Reset 
+  return false; // Prevent page refresh 
+} 
+  </script>
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!------<title> Website Layout | CodingLab</title>------>
+    <link rel="stylesheet" href="style.css">
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+   </head>
+<body>
+  <nav>
+    <div class="menu">
+      <div class="logo">
+        <a>Práctica 1 TA</a>
+      </div>
+    </div>
+  </nav>
+  <div class="img"></div>
+  <div class="center">
+    <table style="border:1px solid black;width:400px;margin-left:auto;margin-right:auto;"
+      width="280" cellspacing="1" cellpadding="3" border="0" bgcolor="#1E679A">
+      <tr>
+         <td><font color="#FFFFFF" face="arial, verdana, helvetica">
+      <b>Eventos disponibles:</b>
+         </font></td>
+      </tr>
+      <tr>
+         <td bgcolor="#ffffcc">
+         <font face="arial, verdana, helvetica">
+          <h3> 
+            0 - Celta - Depor <br>
+            1 - Concierto de Fleetwood Mac
+       </h3>
+         </font>
+         </td>
+      </tr>
+      </table>
+      <br></br>
+   
+    <form id="form1" name="form1" method="post">
+        <label for="fname"> <h2>¿ Cuántas entradas quieres ? : </h2></label><br>
+        <input type="text" id="entrada" name="entrada" placeholder="Máximo 6" class="form-control"
+        value="{{ request.form['entrada'] }}"><br></br>
+        <label for="lname"> <h2> ¿ Evento ?  :</h2></label><br>
+        <input type="text" id="event" name="event" placeholder="0 o 1" class="form-control"
+        value="{{ request.form['event'] }}">
+        <br></br>
+        <input type="button" style="size: 15ch;" value="Aceptar" onclick="submitForm()">
+      </form>
+      <br><br>
+      <h3 style="color:white">{{ value }}<h3>
+      <br></br>
+
+      <form id="form2" name="form2" method="POST">
+        <label for="fname"><h2>Introduzca la clave de la entrada para descargarla:</h2></label><br>
+        <input type="text" id="clave" name="clave"  placeholder="clave" class="form-control" value="{{ request.form['clave'] }}"><br></br>
+        <input  type="button" style="size: 10ch;" value="Aceptar" onclick="submitForm2()">
+      </form>
+  </div>
+</body>
+
+</html>
+
+<style>
+h2 {
+    color: white;
+    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+}
+
+</style>

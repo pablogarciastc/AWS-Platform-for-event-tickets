@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+    <script>
+    
+        function submitForm() { 
+          // Get the first form with the name 
+          var frm = document.getElementsByName('form1')[0]; 
+          frm.submit(); // Submit 
+          frm.reset();  // Reset 
+          return false; // Prevent page refresh 
+        } 
+          </script>
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!------<title> Website Layout | CodingLab</title>------>
+    <link rel="stylesheet" href="style.css">
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+   </head>
+<body>
+  <nav>
+    <div class="menu">
+      <div class="logo">
+        <a>Práctica 1 TA</a>
+      </div>
+    </div>
+  </nav>
+  <div class="img"></div>
+  <div class="center">
+   
+      <div id="container">
+
+        <table style="border:1px solid black;width:500px;height:480px;margin-left:auto;margin-right:auto;"
+        width="280" cellspacing="1" cellpadding="3" border="0" bgcolor="#1E679A">
+        <tr>
+           <td><font color="#FFFFFF" face="arial, verdana, helvetica">
+        <b>Login</b>
+           </font></td>
+        </tr>
+        <tr>
+           <td bgcolor="white">
+           <font face="arial, verdana, helvetica">
+            <h3> 
+                <form id="form1" name="form1" method="POST">
+                    <!-- Username -->
+                    <label for="name">Username:</label>
+                    <input type="name" id="name" name="name">
+                    <!-- Password -->
+                    <br></br>
+                    <label for="username">Contraseña:</label>
+                    <input type="password" id="password" name="password">
+                    <br></br>
+                    <div id="lower">
+                        <!-- Submit Button -->
+                        <input type="button" style="size: 15ch;" value="Aceptar" onclick="submitForm()">
+                    </div>
+                </form>       
+         </h3>
+           </font>
+           </td>
+        </tr>
+        </table>
+    
+    </div>
+
+    
+</body>
+
+</html>
+
+<style>
+h2 {
+    color: white;
+    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+}
+
+</style>
